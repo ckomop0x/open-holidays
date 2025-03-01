@@ -28,11 +28,13 @@ const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
   }, [country]);
 
   return (
-    <div>
-      <h2 className="text-xl font-bold">Public Holidays in {countryIsoCode}</h2>
+    <div className="flex flex-col container w-full mx-auto mt-4">
+      <h2 className="text-xl font-bold text-center">
+        Public Holidays in {countryIsoCode}
+      </h2>
       <ul>
         {holidays.map((holiday) => (
-          <li key={holiday.id} className="mb-2">
+          <li key={holiday.id} className="mb-2 text-center">
             <strong>
               {holiday.name.find((n) => n.language === languageIsoCode)?.text}
             </strong>{" "}

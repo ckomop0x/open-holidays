@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react";
 
 import { getCountries } from "./services/getCountries.ts";
-import CountriesSelect from "@/components/CountriesSelect/CountriesSelect.tsx";
 import { useCountry } from "@/contexts/CountryContext.tsx";
 import HolidaysList from "@/components/HolidaysList/HolidaysList.tsx";
+import CountriesList from "@/components/CountriesSelect/CountriesList.tsx";
 
 const App: FC = () => {
   const [countries, setCountries] = useState<never[]>([]);
@@ -23,9 +23,12 @@ const App: FC = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen flex-col">
-      <div>Selected Country: {selectedCountry}</div>
-      <CountriesSelect countries={countries} />
+    <div>
+      <h2 className="bg-[#154273] text-white text-center py-4">
+        Which days are official public holidays in the your country?
+      </h2>
+      {/*<div>Selected Country: {selectedCountry}</div>*/}
+      <CountriesList countries={countries} />
       <HolidaysList country={selectedCountry} />
     </div>
   );

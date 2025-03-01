@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+@layer base {
+  h1 {
+    @apply text-4xl leading-tight mb-4;
+  }
+
+  h2 {
+    @apply text-3xl leading-snug mb-4;
+  }
+
+  h3 {
+    @apply text-2xl leading-snug mb-3;
+  }
+
+  h4 {
+    @apply text-xl leading-normal mb-3;
+  }
+
+  h5 {
+    @apply text-lg leading-normal mb-2;
+  }
+
+  h6 {
+    @apply text-base leading-relaxed mb-2;
+  }
+}
+
