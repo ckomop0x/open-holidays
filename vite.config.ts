@@ -25,5 +25,10 @@ export default defineConfig({
       "postcss.config.js",
       "tailwind.config.js",
     ],
+    coverage: {
+      provider: "v8", // Use v8 for coverage
+      reporter: ["text", "json", "lcov"], // Ensure JSON and LCOV formats for Codecov
+      reportsDirectory: "coverage", // Make sure Codecov can find reports here
+    },
   },
 });
