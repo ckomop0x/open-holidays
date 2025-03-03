@@ -9,30 +9,34 @@ interface CountriesListProps {
 
 const CountriesList: FC<CountriesListProps> = ({ countries }) => {
   const { selectedCountry, setSelectedCountry } = useCountry();
-  // console.log("countries ===>", countries);
-  // const handleCountryChange = (e: { target: { value: string } }) => {
-  //   console.log("e.target.value ===>", e.target.value);
-  //   setSelectedCountry(e.target.value);
-  // };
+
+  const buttonClass =
+    "border border-gray-300 rounded-md p-2 m-1 cursor-pointer hover:bg-gray-200";
+  const selectedButtonClass =
+    "border border-gray-300 rounded-md p-2 m-1 bg-gray-200 cursor-pointer";
+  const isCountrySelected = (isoCode: string) => selectedCountry === isoCode;
 
   return (
     <>
       {countries.length ? (
-        <div className="flex flex-wrap flex-row w-full">
+        <div className="flex flex-wrap flex-row container justify-center mx-auto">
           {countries.map((country: Country) => (
             <button
               value={country.isoCode}
               key={country.isoCode}
               onClick={() => setSelectedCountry(country.isoCode)}
-              className="border border-gray-300 rounded-md p-2 m-1"
+              className={
+                isCountrySelected(country.isoCode)
+                  ? selectedButtonClass
+                  : buttonClass
+              }
             >
               <ReactCountryFlag
                 countryCode={country.isoCode}
-                title={country.isoCode}
-                className="text-xl mr-2"
+                title={country.name[0].text}
+                className="text-2xl leading-[2em]"
                 svg
               />
-              {country.name[0].text}
             </button>
           ))}
         </div>

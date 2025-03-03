@@ -1,6 +1,9 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Holiday } from "@/types.ts";
 import { getCountryHolidays } from "@/services/getCountryHolidays.ts";
+import { useCountry } from "@/contexts/CountryContext.tsx";
+import { config } from "@/config/config.ts";
+import MainTitle from "@/components/MainTitle/MainTitle.tsx";
 
 const LANGUAGE_ISO_CODE = "EN";
 
@@ -8,12 +11,20 @@ interface HolidaysListProps {
   country: string;
 }
 
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
+}
+
 const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
   const [holidays, setHolidays] = useState<Holiday[]>([]);
+  const { countries } = useCountry();
   const countryIsoCode = country;
   const validFrom = "2025-01-01";
   const validTo = "2025-12-31";
   const languageIsoCode = LANGUAGE_ISO_CODE;
+  const countryData = countries?.find((c) => c.isoCode === countryIsoCode);
+  const countryTitle = countryData?.name?.[0]?.text || "Unknown Country";
 
   useEffect(() => {
     const fetchHolidays = async () => {
@@ -24,26 +35,44 @@ const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
         languageIsoCode,
       );
       setHolidays(data);
+
+      console.log("data", data);
     };
 
     void fetchHolidays();
   }, [country]);
 
   return (
-    <div className="flex flex-col container w-full mx-auto mt-4">
-      <h2 className="text-xl font-bold text-center">
-        Public Holidays in {countryIsoCode}
-      </h2>
-      <ul>
-        {holidays.map((holiday) => (
-          <li key={holiday.id} className="mb-2 text-center">
-            <strong>
-              {holiday.name.find((n) => n.language === languageIsoCode)?.text}
-            </strong>{" "}
-            - {holiday.startDate}
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col mt-4">
+      <MainTitle>
+        {config.appTitle} in {countryTitle}
+      </MainTitle>
+      <div className="grid grid-cols-4 gap-4 p-4 max-w-xl mx-auto">
+        <div className="col-span-4 grid grid-cols-4 border-b-1 border-b-gray-300 pb-2 mb-2">
+          <div className="col-span-1 font-bold">DATE</div>
+          <div className="col-span-1 font-bold">DAY</div>
+          <div className="col-span-2 font-bold">HOLIDAY</div>
+        </div>
+
+        {holidays.map((holiday) => {
+          console.log(holiday);
+
+          const holidayName = holiday.name[0].text;
+          const formattedDate = formatDate(holiday.startDate);
+          const dayOfWeek = new Date(holiday.startDate).toLocaleDateString(
+            "en-GB",
+            { weekday: "long" },
+          );
+
+          return (
+            <React.Fragment key={holiday.id}>
+              <div className="col-span-1">{formattedDate}</div>
+              <div className="col-span-1">{dayOfWeek}</div>
+              <div className="col-span-2">{holidayName}</div>
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };
