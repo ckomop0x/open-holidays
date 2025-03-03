@@ -1,8 +1,9 @@
-import { render, screen } from "@testing-library/react";
-import MainTitle from "./MainTitle";
-import { describe, it, expect } from "vitest";
-import { CountryProvider } from "@/contexts/CountryProvider.tsx";
 import { ReactNode } from "react";
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+
+import MainTitle from "./MainTitle";
+import { CountryProvider } from "@/contexts/CountryProvider";
 
 describe("MainTitle Component", () => {
   const title = "Public holidays";

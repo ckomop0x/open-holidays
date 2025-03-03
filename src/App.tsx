@@ -1,11 +1,11 @@
 import { FC } from "react";
 
-import HolidaysList from "@/components/HolidaysList/HolidaysList.tsx";
-import CountriesList from "@/components/CountriesSelect/CountriesList.tsx";
-import { useCountry } from "@/hooks/useCountry.tsx";
-import YearSelect from "@/components/YearSelect/YearSelect.tsx";
-import MainTitle from "@/components/MainTitle/MainTitle.tsx";
-import Loader from "@/components/Loader/Loader.tsx";
+import HolidaysList from "@/components/HolidaysList/HolidaysList";
+import CountriesList from "@/components/CountriesSelect/CountriesList";
+import { useCountry } from "@/hooks/useCountry";
+import YearSelect from "@/components/YearSelect/YearSelect";
+import MainTitle from "@/components/MainTitle/MainTitle";
+import Loader from "@/components/Loader/Loader";
 
 const MAIN_TITLE = "Public holidays";
 

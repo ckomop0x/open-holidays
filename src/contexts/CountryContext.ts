@@ -1,5 +1,6 @@
 import { createContext } from "react";
-import { Country } from "@/types.ts";
+
+import { Country } from "@/types";
 
 interface CountryContextType {
   selectedCountry: string;

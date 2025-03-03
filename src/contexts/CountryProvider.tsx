@@ -1,8 +1,9 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
-import { Country } from "@/types.ts";
-import { config } from "@/config/config.ts";
-import { getCountries } from "@/services/getCountries.ts";
-import { CountryContext } from "@/contexts/CountryContext.ts";
+
+import { Country } from "@/types";
+import { config } from "@/config/config";
+import { getCountries } from "@/services/getCountries";
+import { CountryContext } from "@/contexts/CountryContext";
 
 export const CountryProvider: FC<PropsWithChildren> = ({ children }) => {
   const [countries, setCountries] = useState<Country[]>([]);

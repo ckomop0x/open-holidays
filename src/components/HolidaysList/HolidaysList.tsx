@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
 
-import { Holiday } from "@/types.ts";
-import { getCountryHolidays } from "@/services/getCountryHolidays.ts";
-import { useCountry } from "@/hooks/useCountry.tsx";
-import { useYear } from "@/contexts/YearContext.tsx";
+import { Holiday } from "@/types";
+import { getCountryHolidays } from "@/services/getCountryHolidays";
+import { useCountry } from "@/hooks/useCountry";
+import { useYear } from "@/contexts/YearContext";
 import {
   getFormattedDayOfWeek,
   getFormattedHolidayDate,
-} from "@/helpers/holidays.ts";
-import { config } from "@/config/config.ts";
+} from "@/helpers/holidays";
+import { config } from "@/config/config";
 
 const HolidaysList: FC = () => {
   const [holidays, setHolidays] = useState<Holiday[]>([]);

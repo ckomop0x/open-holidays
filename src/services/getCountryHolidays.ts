@@ -1,4 +1,4 @@
-import { Holiday } from "@/types.ts";
+import { Holiday } from "@/types";
 
 export const getCountryHolidays = async (
   countryIsoCode: string,

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { useCountry } from "@/hooks/useCountry.tsx";
+import { useCountry } from "@/hooks/useCountry";
 
 interface MainTitleProps {
   title: string;
