@@ -1,23 +1,14 @@
-import { FC, JSX } from "react";
+import { FC } from "react";
 import ReactCountryFlag from "react-country-flag";
 import Select, { SingleValue } from "react-select";
 
 import { useCountry } from "@/hooks/useCountry";
-import { Country } from "@/types";
 import { config } from "@/config/config";
-import { sortCountries } from "@/lib/countries";
+import { sortCountries } from "@/helpers/countries.ts";
+import { OptionType } from "@/types.ts";
 
-interface CountriesListProps {
-  countries: Country[];
-}
-
-type OptionType = {
-  value: string;
-  label: JSX.Element;
-};
-
-const CountriesList: FC<CountriesListProps> = ({ countries }) => {
-  const { setSelectedCountry } = useCountry();
+const CountriesList: FC = () => {
+  const { setSelectedCountry, countries } = useCountry();
 
   const options: OptionType[] = sortCountries(countries).map((country) => ({
     value: country.isoCode,
@@ -34,33 +25,25 @@ const CountriesList: FC<CountriesListProps> = ({ countries }) => {
   }));
 
   const onChange = (newValue: SingleValue<OptionType>) => {
-    if (!newValue) return;
+    if (!newValue || typeof newValue.value !== "string") return;
 
     setSelectedCountry(newValue.value);
   };
 
+  if (!countries?.length) return null;
+
+  const defaultCountry = options.filter(
+    (option) => option.value === config.defaultCountry,
+  )[0];
+
   return (
-    <>
-      {countries.length ? (
-        <div className="flex flex-wrap flex-row container justify-center mx-auto ">
-          <Select
-            isLoading={!countries?.length}
-            defaultValue={
-              options.filter(
-                (option) => option.value === config.defaultCountry,
-              )[0]
-            }
-            onChange={onChange}
-            options={options}
-            className="w-60"
-          />
-        </div>
-      ) : (
-        <div className="block text-sm font-medium text-gray-700 border-1 border-gray-300 rounded-md p-2">
-          No countries data available at this moment
-        </div>
-      )}
-    </>
+    <Select
+      isLoading={!countries?.length}
+      defaultValue={defaultCountry}
+      onChange={onChange}
+      options={options}
+      className="w-60"
+    />
   );
 };
 

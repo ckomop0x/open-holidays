@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface Country {
   isoCode: string;
   name: {
@@ -17,4 +19,9 @@ export interface Holiday {
   temporalScope: string;
   nationwide: boolean;
   subdivisions?: { code: string; shortName: string }[];
+}
+
+export interface OptionType {
+  value: string | number;
+  label: JSX.Element | string;
 }

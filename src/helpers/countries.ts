@@ -1,4 +1,4 @@
-import { Country } from "@/types";
+import { Country } from "@/types.ts";
 
 export const getEnglishName = (country: Country) => {
   const englishNameObj = country.name.find((n) => n.language === "EN");
