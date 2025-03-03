@@ -4,9 +4,12 @@ import { getCountries } from "./services/getCountries.ts";
 import { useCountry } from "@/contexts/CountryContext.tsx";
 import HolidaysList from "@/components/HolidaysList/HolidaysList.tsx";
 import CountriesList from "@/components/CountriesSelect/CountriesList.tsx";
+import { Country } from "@/types.ts";
+import { config } from "@/config.ts";
+import MainTitle from "@/components/MainTitle/MainTitle.tsx";
 
 const App: FC = () => {
-  const [countries, setCountries] = useState<never[]>([]);
+  const [countries, setCountries] = useState<Country[]>([]);
   const { selectedCountry } = useCountry();
 
   const getCountriesInfo = async () => {
@@ -24,10 +27,7 @@ const App: FC = () => {
 
   return (
     <div>
-      <h2 className="bg-[#154273] text-white text-center py-4">
-        Which days are official public holidays in the your country?
-      </h2>
-      {/*<div>Selected Country: {selectedCountry}</div>*/}
+      <MainTitle>{config.appTitle}</MainTitle>
       <CountriesList countries={countries} />
       <HolidaysList country={selectedCountry} />
     </div>

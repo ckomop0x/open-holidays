@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import { Holiday } from "@/types.ts";
-import { getPublicHolidays } from "@/services/getCountryHolidays.ts";
+import { getCountryHolidays } from "@/services/getCountryHolidays.ts";
+
+const LANGUAGE_ISO_CODE = "EN";
 
 interface HolidaysListProps {
   country: string;
@@ -11,11 +13,11 @@ const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
   const countryIsoCode = country;
   const validFrom = "2025-01-01";
   const validTo = "2025-12-31";
-  const languageIsoCode = "EN";
+  const languageIsoCode = LANGUAGE_ISO_CODE;
 
   useEffect(() => {
     const fetchHolidays = async () => {
-      const data = await getPublicHolidays(
+      const data = await getCountryHolidays(
         countryIsoCode,
         validFrom,
         validTo,

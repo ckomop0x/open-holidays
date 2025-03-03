@@ -1,6 +1,6 @@
 import { Holiday } from "@/types.ts";
 
-export const getPublicHolidays = async (
+export const getCountryHolidays = async (
   countryIsoCode: string,
   validFrom: string,
   validTo: string,
@@ -11,15 +11,16 @@ export const getPublicHolidays = async (
     const url = `https://openholidaysapi.org/PublicHolidays?countryIsoCode=${countryIsoCode}&validFrom=${validFrom}&validTo=${validTo}&languageIsoCode=${languageIsoCode}${
       subdivisionCode ? `&subdivisionCode=${subdivisionCode}` : ""
     }`;
-
     const response = await fetch(url);
-    if (!response.ok)
-      throw new Error(`Error fetching holidays: ${response.statusText}`);
 
-    const data: Holiday[] = await response.json();
-    return data;
+    if (!response.ok) {
+      console.log(`Error fetching holidays: ${response.statusText}`);
+      return [];
+    }
+
+    return await response.json();
   } catch (e) {
-    console.error("Error fetching public holidays:", e);
+    console.error("Error fetching holidays:", e);
     return [];
   }
 };
