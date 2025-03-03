@@ -44,7 +44,7 @@ const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
 
   return (
     <div className="flex flex-col mt-4">
-      <MainTitle>
+      <MainTitle className="h-18 flex justify-center">
         {config.appTitle} in {countryTitle}
       </MainTitle>
       <div className="grid grid-cols-4 gap-4 p-4 max-w-xl mx-auto">
@@ -53,25 +53,26 @@ const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
           <div className="col-span-1 font-bold">DAY</div>
           <div className="col-span-2 font-bold">HOLIDAY</div>
         </div>
+        <div className="col-span-4 grid grid-cols-4 max-h-[calc(100vh-250px)] overflow-y-auto">
+          {holidays.map((holiday) => {
+            console.log(holiday);
 
-        {holidays.map((holiday) => {
-          console.log(holiday);
+            const holidayName = holiday.name[0].text;
+            const formattedDate = formatDate(holiday.startDate);
+            const dayOfWeek = new Date(holiday.startDate).toLocaleDateString(
+              "en-GB",
+              { weekday: "long" },
+            );
 
-          const holidayName = holiday.name[0].text;
-          const formattedDate = formatDate(holiday.startDate);
-          const dayOfWeek = new Date(holiday.startDate).toLocaleDateString(
-            "en-GB",
-            { weekday: "long" },
-          );
-
-          return (
-            <React.Fragment key={holiday.id}>
-              <div className="col-span-1">{formattedDate}</div>
-              <div className="col-span-1">{dayOfWeek}</div>
-              <div className="col-span-2">{holidayName}</div>
-            </React.Fragment>
-          );
-        })}
+            return (
+              <React.Fragment key={holiday.id}>
+                <div className="col-span-1">{formattedDate}</div>
+                <div className="col-span-1">{dayOfWeek}</div>
+                <div className="col-span-2">{holidayName}</div>
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

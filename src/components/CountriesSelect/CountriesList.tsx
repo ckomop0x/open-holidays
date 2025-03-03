@@ -1,9 +1,11 @@
 import { FC, JSX } from "react";
-import { Country } from "@/types.ts";
 import ReactCountryFlag from "react-country-flag";
 import Select, { SingleValue } from "react-select";
-import { useCountry } from "@/hooks/useCountry.tsx";
-import { config } from "@/config/config.ts";
+
+import { useCountry } from "@/hooks/useCountry";
+import { Country } from "@/types";
+import { config } from "@/config/config";
+import { sortCountries } from "@/lib/countries";
 
 interface CountriesListProps {
   countries: Country[];
@@ -17,9 +19,7 @@ type OptionType = {
 const CountriesList: FC<CountriesListProps> = ({ countries }) => {
   const { setSelectedCountry } = useCountry();
 
-  console.log(countries);
-
-  const options: OptionType[] = countries.map((country) => ({
+  const options: OptionType[] = sortCountries(countries).map((country) => ({
     value: country.isoCode,
     label: (
       <div className="flex items-center">
@@ -42,7 +42,7 @@ const CountriesList: FC<CountriesListProps> = ({ countries }) => {
   return (
     <>
       {countries.length ? (
-        <div className="flex flex-wrap flex-row container justify-center mx-auto">
+        <div className="flex flex-wrap flex-row container justify-center mx-auto ">
           <Select
             isLoading={!countries?.length}
             defaultValue={
