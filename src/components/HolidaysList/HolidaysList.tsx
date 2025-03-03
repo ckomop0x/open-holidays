@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
 import { Holiday } from "@/types.ts";
 import { getCountryHolidays } from "@/services/getCountryHolidays.ts";
-import { useCountry } from "@/contexts/CountryContext.tsx";
 import { config } from "@/config/config.ts";
 import MainTitle from "@/components/MainTitle/MainTitle.tsx";
+import { useCountry } from "@/hooks/useCountry.tsx";
 
 const LANGUAGE_ISO_CODE = "EN";
 
@@ -40,7 +40,7 @@ const HolidaysList: FC<HolidaysListProps> = ({ country }) => {
     };
 
     void fetchHolidays();
-  }, [country]);
+  }, [country, countryIsoCode, languageIsoCode]);
 
   return (
     <div className="flex flex-col mt-4">

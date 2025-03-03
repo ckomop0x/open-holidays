@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Country } from "@/types.ts";
-import { useCountry } from "@/contexts/CountryContext";
 import ReactCountryFlag from "react-country-flag";
+import { useCountry } from "@/hooks/useCountry.tsx";
 
 interface CountriesListProps {
   countries: Country[];

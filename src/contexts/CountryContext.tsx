@@ -1,6 +1,5 @@
 import {
   createContext,
-  useContext,
   useState,
   PropsWithChildren,
   FC,
@@ -16,7 +15,9 @@ interface CountryContextType {
   setSelectedCountry(country: string): void;
 }
 
-const CountryContext = createContext<CountryContextType | undefined>(undefined);
+export const CountryContext = createContext<CountryContextType | undefined>(
+  undefined,
+);
 
 export const CountryProvider: FC<PropsWithChildren> = ({ children }) => {
   const [countries, setCountries] = useState<Country[]>([]);
@@ -42,13 +43,4 @@ export const CountryProvider: FC<PropsWithChildren> = ({ children }) => {
       {children}
     </CountryContext.Provider>
   );
-};
-
-export const useCountry = () => {
-  const context = useContext(CountryContext);
-
-  if (!context)
-    throw new Error("useCountry must be used within a CountryProvider");
-
-  return context;
 };
