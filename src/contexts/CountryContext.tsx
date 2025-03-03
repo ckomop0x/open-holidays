@@ -5,7 +5,7 @@ import {
   PropsWithChildren,
   FC,
 } from "react";
-import { config } from "@/config.ts";
+import { config } from "@/config/config.ts";
 
 interface CountryContextType {
   selectedCountry: string;

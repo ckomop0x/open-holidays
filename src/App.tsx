@@ -5,7 +5,7 @@ import { useCountry } from "@/contexts/CountryContext.tsx";
 import HolidaysList from "@/components/HolidaysList/HolidaysList.tsx";
 import CountriesList from "@/components/CountriesSelect/CountriesList.tsx";
 import { Country } from "@/types.ts";
-import { config } from "@/config.ts";
+import { config } from "@/config/config.ts";
 import MainTitle from "@/components/MainTitle/MainTitle.tsx";
 
 const App: FC = () => {
