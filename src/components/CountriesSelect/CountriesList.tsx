@@ -4,8 +4,8 @@ import Select, { SingleValue } from "react-select";
 
 import { useCountry } from "@/hooks/useCountry";
 import { config } from "@/config/config";
-import { sortCountries } from "@/helpers/countries";
 import { OptionType } from "@/types";
+import { sortCountries } from "@/lib/countries/sortCountries";
 
 const CountriesList: FC = () => {
   const { setSelectedCountry, countries } = useCountry();

@@ -4,10 +4,7 @@ import { Holiday } from "@/types";
 import { getCountryHolidays } from "@/services/getCountryHolidays";
 import { useCountry } from "@/hooks/useCountry";
 import { useYear } from "@/contexts/YearContext";
-import {
-  getFormattedDayOfWeek,
-  getFormattedHolidayDate,
-} from "@/helpers/holidays";
+import { getFormattedDayOfWeek, getFormattedHolidayDate } from "@/lib/holidays";
 import { config } from "@/config/config";
 
 const HolidaysList: FC = () => {

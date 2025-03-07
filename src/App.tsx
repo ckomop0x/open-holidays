@@ -6,6 +6,8 @@ import { useCountry } from "@/hooks/useCountry";
 import YearSelect from "@/components/YearSelect/YearSelect";
 import MainTitle from "@/components/MainTitle/MainTitle";
 import Loader from "@/components/Loader/Loader";
+import Container from "@/components/ui/Container/Container";
+import Footer from "@/components/ui/Footer/Footer";
 
 const MAIN_TITLE = "Public holidays";
 
@@ -13,20 +15,23 @@ const App: FC = () => {
   const { countries } = useCountry();
 
   return (
-    <div className="flex flex-col h-screen">
-      {countries.length ? (
-        <div className="flex flex-col mx-auto w-full justify-center">
-          <MainTitle title={MAIN_TITLE} />
-          <div className="flex flex-wrap flex-row container justify-between mx-auto pt-2 max-w-sm">
-            <CountriesList />
-            <YearSelect />
-          </div>
-          <HolidaysList />
-        </div>
-      ) : (
-        <Loader />
-      )}
-    </div>
+    <Container>
+      <MainTitle title={MAIN_TITLE} />
+      <div className="overflow-auto flex-1">
+        {countries.length ? (
+          <>
+            <div className="flex flex-wrap flex-row container justify-between mx-auto pt-2 max-w-sm">
+              <CountriesList />
+              <YearSelect />
+            </div>
+            <HolidaysList />
+          </>
+        ) : (
+          <Loader />
+        )}
+      </div>
+      <Footer />
+    </Container>
   );
 };
 
