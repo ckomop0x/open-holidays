@@ -2,7 +2,7 @@ import Select, { SingleValue } from "react-select";
 
 import { useYear } from "@/contexts/YearContext";
 import { OptionType } from "@/types";
-import { getYearsOptions } from "@/helpers/years";
+import { getYearsOptions } from "@/lib/years";
 
 const MINIMUM_YEAR = 2019;
 const SELECT_PLACEHOLDER = "Select Year";

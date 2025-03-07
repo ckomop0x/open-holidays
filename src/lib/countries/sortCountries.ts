@@ -1,9 +1,5 @@
 import { Country } from "@/types";
-
-export const getEnglishName = (country: Country) => {
-  const englishNameObj = country.name.find((n) => n.language === "EN");
-  return englishNameObj ? englishNameObj.text : "";
-};
+import { getEnglishName } from "@/lib/countries/getEnglishName";
 
 export const sortCountries = (countries: Country[]) => {
   return [...countries].sort((a, b) =>
