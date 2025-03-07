@@ -3,7 +3,7 @@ import { Blocks } from "react-loader-spinner";
 
 const Loader: FC = () => {
   return (
-    <div className="flex justify-center items-center h-full flex-col">
+    <div className="flex justify-center items-center h-full flex-col px-4">
       <Blocks
         height="80"
         width="80"
@@ -12,7 +12,7 @@ const Loader: FC = () => {
         wrapperClass="blocks-wrapper"
         visible={true}
       />
-      <p className="text-cyan-950">
+      <p className="text-cyan-950 text-center">
         We are preparing the agenda to showcase the long-awaited holidays.
       </p>
     </div>
