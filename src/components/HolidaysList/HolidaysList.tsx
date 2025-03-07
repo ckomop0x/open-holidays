@@ -1,39 +1,10 @@
-import React, { FC, useEffect, useState } from "react";
-import { Holiday } from "@/types";
-import { getCountryHolidays } from "@/services/getCountryHolidays";
-import { useCountry } from "@/hooks/useCountry";
-import { useYear } from "@/contexts/YearContext";
+import React, { FC } from "react";
 import { getFormattedDayOfWeek, getFormattedHolidayDate } from "@/lib/holidays";
-import { config } from "@/config/config";
 import { getGroupedHolidays } from "@/lib/holidays/getGroupedHolidays";
+import { useHolidays } from "@/hooks/useHolidays";
 
 const HolidaysList: FC = () => {
-  const [holidays, setHolidays] = useState<Holiday[]>([]);
-  const { selectedCountry } = useCountry();
-  const { year } = useYear();
-  const validFrom = `${year}-01-01`;
-  const validTo = `${year}-12-31`;
-  const languageIsoCode = config.languageIsoCode;
-
-  useEffect(() => {
-    const fetchHolidays = async () => {
-      try {
-        const data = await getCountryHolidays(
-          selectedCountry,
-          validFrom,
-          validTo,
-          languageIsoCode,
-        );
-        setHolidays(data);
-      } catch (error) {
-        console.error("Error fetching holidays:", error);
-      }
-    };
-
-    void fetchHolidays();
-  }, [selectedCountry, languageIsoCode, validFrom, validTo, year]);
-
-  if (!holidays.length) return null;
+  const { holidays } = useHolidays();
 
   return (
     <div className="flex flex-col mt-2">
