@@ -3,7 +3,7 @@ import { Blocks } from "react-loader-spinner";
 
 const Loader: FC = () => {
   return (
-    <div className="flex justify-center items-center h-screen flex-col">
+    <div className="flex justify-center items-center h-full flex-col">
       <Blocks
         height="80"
         width="80"
