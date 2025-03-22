@@ -10,7 +10,7 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_NAME).then((cache) =>
             cache.addAll([
                 new Request('/Countries'),
-                new Request('/PublicHolidays/US/2025') // Adjust for your default
+                new Request('/PublicHolidays?countryIsoCode=NL&validFrom=2025-01-01&validTo=2025-12-31&languageIsoCode=EN') // Adjust for your default
             ])
         )
     );
