@@ -1,7 +1,7 @@
 {
   "name": "open-holidays-2025",
   "private": true,
-  "version": "0.3.27",
+  "version": "0.3.28",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -40,7 +40,7 @@
     "eslint-plugin-react-refresh": "0.4.19",
     "globals": "16.0.0",
     "jsdom": "26.0.0",
-    "msw": "2.7.3",
+    "msw": "2.7.4",
     "prettier": "3.5.3",
     "typescript": "5.8.3",
     "typescript-eslint": "8.29.1",
