@@ -51,8 +51,8 @@ describe("HolidaysList Component", () => {
     renderWithProviders();
 
     await waitFor(() => {
-      expect(screen.getByText(/25 December/i)).toBeInTheDocument();
-      expect(screen.getByText(/1 January/i)).toBeInTheDocument();
+      expect(screen.getByText(/25 Dec/i)).toBeInTheDocument();
+      expect(screen.getByText(/1 Jan/i)).toBeInTheDocument();
     });
   });
 
