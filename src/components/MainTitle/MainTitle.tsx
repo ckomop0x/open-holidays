@@ -19,7 +19,7 @@ const MainTitle: FC<MainTitleProps> = ({ className, title }) => {
     >
       <div className="w-md flex items-center justify-start h-full px-4">
         <img src={logo} alt="logo" className="w-12 h-12 mr-2" />
-        <h1 className="text-[22px] mb-0">
+        <h1 className="text-[20px] mb-0">
           {title} in {countryTitle}
         </h1>
       </div>
