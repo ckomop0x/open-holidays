@@ -26,7 +26,9 @@ const HolidaysList: FC = () => {
 
                   return (
                     <React.Fragment key={holiday.id}>
-                      <div className="col-span-1 pr-2">{formattedDate}</div>
+                      <div className="col-span-1 pr-2 whitespace-nowrap">
+                        {formattedDate}
+                      </div>
                       <div className="col-span-1 pr-2">{dayOfWeek}</div>
                       <div className="col-span-2">{holidayName}</div>
                     </React.Fragment>
