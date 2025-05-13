@@ -17,7 +17,7 @@ const App: FC = () => {
   return (
     <Container>
       <MainTitle title={MAIN_TITLE} />
-      <div className="overflow-auto flex-1 mx-auto max-w-md px-6 py-4">
+      <div className="overflow-auto flex-1 mx-auto max-w-md px-6 py-4 w-full">
         {countries.length ? (
           <>
             <div className="flex flex-wrap flex-row container justify-between mx-auto pt-2">
