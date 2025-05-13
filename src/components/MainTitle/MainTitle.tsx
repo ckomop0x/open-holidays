@@ -13,12 +13,17 @@ const MainTitle: FC<MainTitleProps> = ({ className, title }) => {
   const countryTitle = countryData?.name?.[0]?.text || "Unknown Country";
 
   return (
-    <h2
-      className={`bg-[#154273] text-white text-center ${className} h-18 flex justify-center items-center`}
+    <div
+      className={`bg-[#154273] text-white h-18 flex justify-center items-center
+       ${className}`}
     >
-      <img src={logo} alt="logo" className="w-12 h-12 mr-2" />
-      {title} in {countryTitle}
-    </h2>
+      <div className="w-md flex items-center justify-start h-full px-4">
+        <img src={logo} alt="logo" className="w-12 h-12 mr-2" />
+        <h1 className="text-[22px] mb-0">
+          {title} in {countryTitle}
+        </h1>
+      </div>
+    </div>
   );
 };
 
