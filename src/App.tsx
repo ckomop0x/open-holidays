@@ -17,10 +17,10 @@ const App: FC = () => {
   return (
     <Container>
       <MainTitle title={MAIN_TITLE} />
-      <div className="overflow-auto flex-1">
+      <div className="overflow-auto flex-1 mx-auto max-w-md">
         {countries.length ? (
           <>
-            <div className="flex flex-wrap flex-row container justify-between mx-auto pt-2 max-w-sm">
+            <div className="flex flex-wrap flex-row container justify-between mx-auto pt-2">
               <CountriesList />
               <YearSelect />
             </div>

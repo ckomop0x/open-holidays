@@ -8,7 +8,7 @@ const HolidaysList: FC = () => {
 
   return (
     <div className="flex flex-col mt-2">
-      <div className="max-w-lg mx-auto p-4">
+      <div className="max-w-lg mx-auto py-4">
         {Object.entries(getGroupedHolidays(holidays)).map(
           ([month, monthHolidays]) => (
             <div key={month} className="mb-4">
