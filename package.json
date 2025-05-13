@@ -1,7 +1,7 @@
 {
   "name": "open-holidays",
   "private": true,
-  "version": "0.4.0",
+  "version": "0.4.1",
   "type": "module",
   "author": {
     "name": "Pavel Klochkov",
@@ -47,7 +47,7 @@
     "msw": "2.8.2",
     "prettier": "3.5.3",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.32.0",
+    "typescript-eslint": "8.32.1",
     "vite": "6.3.5",
     "vite-plugin-pwa": "1.0.0",
     "vite-tsconfig-paths": "5.1.4",
