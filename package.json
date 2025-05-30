@@ -1,7 +1,7 @@
 {
   "name": "open-holidays",
   "private": true,
-  "version": "0.4.13",
+  "version": "0.4.14",
   "type": "module",
   "author": {
     "name": "Pavel Klochkov",
@@ -34,7 +34,7 @@
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
-    "@types/node": "22.15.24",
+    "@types/node": "22.15.29",
     "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",
     "@vitejs/plugin-react": "4.5.0",
