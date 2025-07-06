@@ -8,7 +8,7 @@ on:
 
 jobs:
   call-shared-workflow:
-    uses: my-org/shared-workflows/.github/workflows/unit-tests.yml@main
+    uses: ckomop0x/shared-workflows/.github/workflows/unit-tests.yml@main
     with:
       node_version: '22'
     secrets:
