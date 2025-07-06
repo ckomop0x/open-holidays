@@ -8,6 +8,8 @@ on:
 
 jobs:
   call-shared-workflow:
-    uses: ckomop0x/shared-workflows/.github/workflows/unit-tests.yml@main
+    uses: my-org/shared-workflows/.github/workflows/unit-tests.yml@main
+    with:
+      node_version: '22'
     secrets:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
