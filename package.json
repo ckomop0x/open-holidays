@@ -1,7 +1,7 @@
 {
   "name": "open-holidays",
   "private": true,
-  "version": "1.0.45",
+  "version": "1.0.46",
   "type": "module",
   "author": {
     "name": "Pavel Klochkov",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.34.0",
-    "@tailwindcss/vite": "4.1.12",
+    "@tailwindcss/vite": "4.1.13",
     "@testing-library/jest-dom": "6.8.0",
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
