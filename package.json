@@ -1,7 +1,7 @@
 {
   "name": "open-holidays",
   "private": true,
-  "version": "1.0.51",
+  "version": "1.0.52",
   "type": "module",
   "author": {
     "name": "Pavel Klochkov",
@@ -55,5 +55,5 @@
     "vitest": "3.2.4",
     "workbox-cli": "7.3.0"
   },
-  "packageManager": "pnpm@10.15.1"
+  "packageManager": "pnpm@10.16.0"
 }
